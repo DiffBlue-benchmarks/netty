@@ -258,7 +258,7 @@
     <module>resolver</module>
     <module>resolver-dns</module>
     <module>tarball</module>
-    <module>transport</module>
+    <!--<module>transport</module>
     <module>transport-native-unix-common-tests</module>
     <module>transport-native-unix-common</module>
     <module>transport-native-epoll</module>
@@ -275,7 +275,7 @@
     <module>testsuite-osgi</module>
     <module>testsuite-shading</module>
     <module>microbench</module>
-    <module>bom</module>
+    <module>bom</module>-->
   </modules>
 
   <dependencyManagement>
