@@ -1,0 +1,137 @@
+# Tested on Deeptest release 1.10.0
+cbmcArguments:
+  cover-function-only: false
+  depth: false
+  do-not-test-methods-with-access: [ private ]
+  java-generate-no-comments: true
+  no-trivial-tests: true
+phases:
+-
+  timeout: 300
+  cbmcArguments:
+    java-assume-inputs-non-null: true
+    max-nondet-array-length: 10
+    string-non-empty: true
+    unwind: 1
+-
+  timeout: 300
+  cbmcArguments:
+    max-nondet-array-length: 20
+    unwind: 2
+-
+  timeout: 300
+  cbmcArguments:
+    max-nondet-array-length: 30
+    max-nondet-string-length: 10
+    unwind: 3
+units:
+  - target:
+    - dir: codec-http/target/classes
+      file: io/netty/handler/codec/http/CookieDecoder.class
+      sourceDir: codec-http/src/main/java
+      sourceFile: io/netty/handler/codec/http/CookieDecoder.java
+    # Child of CookieDecoder.class
+    - dir: codec/target/classes
+      file: io/netty/handler/codec/DateFormatter.class
+      sourceDir: codec/src/main/java
+      sourceFile: io/netty/handler/codec/DateFormatter.java
+    # Child of CookieDecoder.class
+    - dir: codec-http/target/classes
+      file: io/netty/handler/codec/http/cookie/CookieHeaderNames.class
+      sourceDir: codec-http/src/main/java
+      sourceFile: io/netty/handler/codec/http/cookie/CookieHeaderNames.java
+    # Child of CookieDecoder.class
+    - dir: common/target/classes
+      file: io/netty/util/internal/logging/InternalLogger.class
+      sourceDir: common/src/main/java
+      sourceFile: io/netty/util/internal/logging/InternalLogger.java
+    # Child of CookieDecoder.class
+    - dir: common/target/classes
+      file: io/netty/util/internal/logging/InternalLoggerFactory.class
+      sourceDir: common/src/main/java
+      sourceFile: io/netty/util/internal/logging/InternalLoggerFactory.java
+  - target:
+    - dir: codec-http/target/classes
+      file: io/netty/handler/codec/http/cookie/CookieDecoder.class
+      sourceDir: codec-http/src/main/java
+      sourceFile: io/netty/handler/codec/http/cookie/CookieDecoder.java
+  - target:
+    - dir: codec-http/target/classes
+      file: io/netty/handler/codec/http/websocketx/WebSocket08FrameDecoder.class
+      sourceDir: codec-http/src/main/java
+      sourceFile: io/netty/handler/codec/http/websocketx/WebSocket08FrameDecoder.java
+    # Child of WebSocket08FrameDecoder.class
+    - dir: buffer/target/classes
+      file: io/netty/buffer/ByteBuf.class
+      sourceDir: buffer/src/main/java
+      sourceFile: io/netty/buffer/ByteBuf.java
+    # Child of WebSocket08FrameDecoder.class
+    - dir: buffer/target/classes
+      file: io/netty/buffer/Unpooled.class
+      sourceDir: buffer/src/main/java
+      sourceFile: io/netty/buffer/Unpooled.java
+    # Child of WebSocket08FrameDecoder.class
+    - dir: codec/target/classes
+      file: io/netty/handler/codec/ByteToMessageDecoder.class
+      sourceDir: codec/src/main/java
+      sourceFile: io/netty/handler/codec/ByteToMessageDecoder.java
+    # Child of WebSocket08FrameDecoder.class
+    - dir: codec/target/classes
+      file: io/netty/handler/codec/CorruptedFrameException.class
+      sourceDir: codec/src/main/java
+      sourceFile: io/netty/handler/codec/CorruptedFrameException.java
+    # Child of WebSocket08FrameDecoder.class
+    - dir: codec/target/classes
+      file: io/netty/handler/codec/TooLongFrameException.class
+      sourceDir: codec/src/main/java
+      sourceFile: io/netty/handler/codec/TooLongFrameException.java
+  - target:
+    - dir: codec-http/target/classes
+      file: io/netty/handler/codec/spdy/SpdyHeaderBlockRawDecoder.class
+      sourceDir: codec-http/src/main/java
+      sourceFile: io/netty/handler/codec/spdy/SpdyHeaderBlockRawDecoder.java
+    # Child of SpdyHeaderBlockRawDecoder.class
+    - dir: buffer/target/classes
+      file: io/netty/buffer/ByteBufAllocator.class
+      sourceDir: buffer/src/main/java
+      sourceFile: io/netty/buffer/ByteBufAllocator.java
+  - target:
+    - dir: codec/target/classes
+      file: io/netty/handler/codec/compression/Bzip2Decoder.class
+      sourceDir: codec/src/main/java
+      sourceFile: io/netty/handler/codec/compression/Bzip2Decoder.java
+  - target:
+    - dir: codec/target/classes
+      file: io/netty/handler/codec/compression/Lz4Constants.class
+      sourceDir: codec/src/main/java
+      sourceFile: io/netty/handler/codec/compression/Lz4Constants.java
+  - target:
+    - dir: codec-http/target/classes
+      file: io/netty/handler/codec/spdy/SpdyFrameDecoder.class
+      sourceDir: codec-http/src/main/java
+      sourceFile: io/netty/handler/codec/spdy/SpdyFrameDecoder.java
+  - target:
+    - dir: codec-xml/target/classes
+      file: io/netty/handler/codec/xml/XmlDecoder.class
+      sourceDir: codec-xml/src/main/java
+      sourceFile: io/netty/handler/codec/xml/XmlDecoder.java
+  - target:
+    - dir: codec/target/classes
+      file: io/netty/handler/codec/base64/Base64.class
+      sourceDir: codec/src/main/java
+      sourceFile: io/netty/handler/codec/base64/Base64.java
+    # Child of Base64.class
+    - dir: common/target/classes
+      file: io/netty/util/ByteProcessor.class
+      sourceDir: common/src/main/java
+      sourceFile: io/netty/util/ByteProcessor.java
+    # Child of Base64.class
+    - dir: common/target/classes
+      file: io/netty/util/internal/PlatformDependent.class
+      sourceDir: common/src/main/java
+      sourceFile: io/netty/util/internal/PlatformDependent.java
+  - target:
+    - dir: codec/target/classes
+      file: io/netty/handler/codec/compression/SnappyFrameDecoder.class
+      sourceDir: codec/src/main/java
+      sourceFile: io/netty/handler/codec/compression/SnappyFrameDecoder.java
